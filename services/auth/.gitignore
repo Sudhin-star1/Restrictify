@@ -1,0 +1,12 @@
+*.o
+*.a
+*.so
+
+_obj
+_test
+vendor/
+bin/
+
+*.exe
+*.test
+*.prof
