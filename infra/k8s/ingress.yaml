@@ -4,15 +4,19 @@ metadata:
   name: restrictify
   labels:
     name: restrictify
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - host: restrictify.com
     http:
       paths:
       - pathType: Prefix
-        path: "/api/auth/?(.*)"
+        path: /api/auth/?(.*)
         backend:
           service:
             name: auth-service
             port: 
-              number: 8080
+              number: 8000
+            

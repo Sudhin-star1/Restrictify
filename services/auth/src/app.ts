@@ -2,10 +2,9 @@ import express, { Express } from 'express';
 
 const app: Express = express();
 
-app.get("/", (req, res) => {
+app.get("/noman", (req, res) => {
     res.json({
-        status: "ok",
-        message: "helloworld",
+        messageOnly:"super kubernetes day"
     })
 })
 
