@@ -4,7 +4,7 @@ const app: Express = express();
 
 app.get("/noman", (req, res) => {
     res.json({
-        messageOnly:"super kubernetes day"
+        messageOnly:"Helloworld aashish !!"
     })
 })
 
