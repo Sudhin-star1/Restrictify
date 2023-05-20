@@ -1,18 +1,18 @@
 apiVersion: skaffold/v3alpha1
 kind: Config
 build:
-  local: 
+  local:
     push: false
   artifacts:
-    - image: restrictify/auth
-      context: ./services/auth 
+    - image: aashish5355/auth
+      context: ./services/auth
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - dest: .
-            src: 'src/**/*.ts'
-      
+            src: "src/**/*.ts"
+
 manifests:
   rawYaml:
     - ./infra/k8s/*.yaml

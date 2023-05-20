@@ -1,3 +1,6 @@
+# stephenrigder -> kubernetes deployment image upload to docker hub for every changes issue !!!
+# and code not reflecting issue
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,27 +16,26 @@ spec:
         app: auth
     spec:
       containers:
-      - name: auth
-        image: restrictify/auth
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 8000
+        - image: aashish5355/auth:latest
+          name: auth
+          resources:
+            limits:
+              memory: "400Mi"
+              cpu: "500m"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
 
---- 
+---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: auth-service
 spec:
   selector:
     app: auth
   ports:
-  - name: auth
-    protocol: TCP
-    port: 8000
-    targetPort: 8000
-    
+    - name: auth
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
